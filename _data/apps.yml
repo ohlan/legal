@@ -1,0 +1,14 @@
+# One entry per app. Pages set `app: <key>` in their front matter.
+pista:
+  name: "Pista"
+  store_name: "Pista: Expense Tracker"
+  tagline: "A private expense tracker. Your money data stays on your phone."
+  icon: "assets/apps/pista.svg"
+  developer: "TranscenD"
+  contact: "manifest.singularity@gmail.com"
+  play_url: "https://play.google.com/store/apps/details?id=io.pennytrail.app"
+  decor: "sprout"
+  # Hero gradient + accents (the app's emerald palette)
+  hero_from: "#17704A"
+  hero_to: "#0A3F2A"
+  sprout: "#9FD95E"

@@ -1,10 +1,11 @@
-title: "Pista"
-description: "Privacy policy and terms for Pista: Expense Tracker."
+title: "TranscenD"
+description: "Privacy policies and terms for TranscenD apps."
+developer: "TranscenD"
 markdown: kramdown
 kramdown:
   auto_ids: true
 
-# Every page uses the Pista layout unless it sets its own.
+# Every page uses the shared layout unless it sets its own.
 defaults:
   - scope:
       path: ""

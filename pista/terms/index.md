@@ -1,6 +1,7 @@
 ---
+app: pista
 title: "Pista Terms of Service"
-eyebrow: "Pista · Legal"
+eyebrow: "Pista: Expense Tracker"
 lede: "The rules for using Pista, its free trial and Pro subscription."
 effective: "November 7, 2026"
 nav: terms
@@ -8,7 +9,7 @@ root: "../../"
 ---
 These Terms of Service ("Terms") govern your use of Pista ("Pista: Expense Tracker", formerly PennyTrail), the Android app published on Google Play by TranscenD ("we", "us"). By installing or using Pista, you agree to these Terms. If you do not agree, do not use the app.
 
-How we handle your data is described in the [Pista Privacy Policy](../), which forms part of these Terms.
+How we handle your data is described in the [Pista Privacy Policy](../privacy/), which forms part of these Terms.
 
 ## 1. What Pista Is
 

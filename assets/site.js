@@ -1,4 +1,4 @@
-// Pista policies: section cards, numbered headings, contents + scrollspy, reading progress,
+// App policies site: section cards, numbered headings, contents + scrollspy, reading progress,
 // theme toggle, copy-link anchors, back-to-top. Everything is progressive: without JS the page
 // is the plain, fully readable document.
 (function () {
@@ -104,7 +104,7 @@
         if (e.isIntersecting) { e.target.classList.add("in"); reveal.unobserve(e.target); }
       });
     }, { rootMargin: "0px 0px -8% 0px" });
-    document.querySelectorAll(".section, .card-link").forEach(function (el) {
+    document.querySelectorAll(".section, .card-link, .app-card").forEach(function (el) {
       el.classList.add("reveal");
       reveal.observe(el);
     });
@@ -146,6 +146,6 @@
     var root = document.documentElement;
     var dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
     root.dataset.theme = dark ? "light" : "dark";
-    try { localStorage.setItem("pista-theme", root.dataset.theme); } catch (e) {}
+    try { localStorage.setItem("site-theme", root.dataset.theme); } catch (e) {}
   });
 })();

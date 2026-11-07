@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Copies the policy texts from the app repo (PennyTrail/docs) into this site.
+"""Copies Pista's policy texts from its app repo (PennyTrail/docs) into this site.
 
 Usage: python3 tools/sync_from_app.py ../PennyTrail/docs
+
+For another app, copy this script (or extend PAGES) with that app's key from _data/apps.yml.
 
 The app repo's docs/PRIVACY_POLICY.md and docs/TERMS_OF_SERVICE.md are the source of truth.
 Their "# Title" and "Effective date: ..." lines become front matter (shown in the page header).
@@ -10,15 +12,16 @@ import pathlib
 import re
 import sys
 
+APP = "pista"
 PAGES = [
-    ("PRIVACY_POLICY.md", "pista/index.md", "privacy", "../",
+    ("PRIVACY_POLICY.md", f"{APP}/privacy/index.md", "privacy",
      "How Pista handles your data. Most of it never leaves your phone."),
-    ("TERMS_OF_SERVICE.md", "pista/terms/index.md", "terms", "../../",
+    ("TERMS_OF_SERVICE.md", f"{APP}/terms/index.md", "terms",
      "The rules for using Pista, its free trial and Pro subscription."),
 ]
 
 
-def convert(text: str, nav: str, root: str, lede: str) -> str:
+def convert(text: str, nav: str, lede: str) -> str:
     lines = text.splitlines()
     title = lines[0].lstrip("# ").strip()
     effective = ""
@@ -31,12 +34,13 @@ def convert(text: str, nav: str, root: str, lede: str) -> str:
         body.append(line)
     front = [
         "---",
+        f"app: {APP}",
         f'title: "{title}"',
-        f'eyebrow: "Pista · Legal"',
+        f'eyebrow: "Pista: Expense Tracker"',
         f'lede: "{lede}"',
         f'effective: "{effective}"',
         f"nav: {nav}",
-        f'root: "{root}"',
+        'root: "../../"',
         "---",
     ]
     return "\n".join(front) + "\n" + "\n".join(body).lstrip("\n") + "\n"
@@ -47,10 +51,10 @@ def main() -> None:
         sys.exit(__doc__)
     src = pathlib.Path(sys.argv[1])
     site = pathlib.Path(__file__).resolve().parent.parent
-    for name, dest, nav, root, lede in PAGES:
+    for name, dest, nav, lede in PAGES:
         out = site / dest
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(convert((src / name).read_text(encoding="utf-8"), nav, root, lede), encoding="utf-8")
+        out.write_text(convert((src / name).read_text(encoding="utf-8"), nav, lede), encoding="utf-8")
         print("wrote", out.relative_to(site))
 
 
