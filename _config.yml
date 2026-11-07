@@ -1,2 +1,16 @@
-title: ""
-description: ""
+title: "Pista"
+description: "Privacy policy and terms for Pista: Expense Tracker."
+markdown: kramdown
+kramdown:
+  auto_ids: true
+
+# Every page uses the Pista layout unless it sets its own.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "policy"
+
+exclude:
+  - README.md
+  - tools/

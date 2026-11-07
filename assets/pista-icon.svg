@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 108 108">
+  <!-- Variant B (polished): sprouting pista. A split-shell pistachio with a two-leaf sprout
+       rising from the kernel: "small amounts saved, growing". Everything sits inside the
+       adaptive-icon safe zone (radius 33 around the centre). -->
+  <defs>
+    <radialGradient id="bg" cx="40%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#17704A"/>
+      <stop offset="1" stop-color="#0A3F2A"/>
+    </radialGradient>
+    <linearGradient id="shellL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FCF5E3"/>
+      <stop offset="1" stop-color="#E4CF9F"/>
+    </linearGradient>
+    <linearGradient id="shellR" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2E5C4"/>
+      <stop offset="1" stop-color="#D6BC86"/>
+    </linearGradient>
+    <linearGradient id="kernel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D2F18A"/>
+      <stop offset="1" stop-color="#6FAE34"/>
+    </linearGradient>
+  </defs>
+  <rect width="108" height="108" fill="url(#bg)"/>
+  <path d="M54.2,48 C54.2,42 54.3,37 54.6,32" fill="none" stroke="#9FD95E" stroke-width="3" stroke-linecap="round"/>
+  <path d="M54.6,35.5 C46.5,36.5 41,31.5 40.5,25 C48,24.5 54,28.5 54.6,35.5 Z" fill="#9FD95E"/>
+  <path d="M54.6,33 C61.5,33 66.5,28.5 67.5,22.5 C60,22 55,26 54.6,33 Z" fill="#C6EC86"/>
+  <g transform="translate(54 65) scale(0.8) translate(-54 -54)">
+    <ellipse cx="54" cy="51" rx="10.5" ry="21" fill="url(#kernel)"/>
+    <g transform="rotate(-12 54 81)">
+      <path d="M54,27 C40,27 32,45 32,59 C32,72 42,81 54,81 Z" fill="url(#shellL)"/>
+      <path d="M54,29.5 L54,79.5" stroke="#C9AE76" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M40,44 C37.5,50 37,56 38,62" fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+    <g transform="rotate(12 54 81)">
+      <path d="M54,27 C68,27 76,45 76,59 C76,72 66,81 54,81 Z" fill="url(#shellR)"/>
+      <path d="M54,29.5 L54,79.5" stroke="#C2A56C" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

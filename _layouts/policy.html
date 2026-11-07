@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}Pista</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="theme-color" content="#EEF3EF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0D120E" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="{{ page.root }}assets/pista-icon.svg">
+  <link rel="stylesheet" href="{{ page.root }}assets/pista.css">
+  <script>
+    // Applied before paint so a saved theme never flashes the other one.
+    try { var t = localStorage.getItem("pista-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+    document.documentElement.classList.add("js");
+  </script>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="{{ page.root }}">
+        <img src="{{ page.root }}assets/pista-icon.svg" alt="" width="32" height="32">
+        <span>Pista</span>
+      </a>
+      <nav class="nav" aria-label="Policies">
+        <a href="{{ page.root }}pista/" {% if page.nav == "privacy" %}aria-current="page"{% endif %}>Privacy</a>
+        <a href="{{ page.root }}pista/terms/" {% if page.nav == "terms" %}aria-current="page"{% endif %}>Terms</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <svg class="hero-sprout" viewBox="0 0 120 120" aria-hidden="true">
+      <path class="stem" d="M60 112 C60 92 60.5 76 61.5 60"/>
+      <path class="leaf leaf-l" d="M61.5 70 C44 72 33 62 32 48 C48 47 60.5 55.5 61.5 70 Z"/>
+      <path class="leaf leaf-r" d="M61.5 64 C76 64 86.5 55 88.5 42 C72.5 41 62.5 49.5 61.5 64 Z"/>
+    </svg>
+    <div class="hero-inner">
+      {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
+      <h1>{{ page.title }}</h1>
+      {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
+      <div class="chips">
+        {% if page.effective %}<span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Effective {{ page.effective }}</span>{% endif %}
+        <span class="chip" data-reading-time hidden></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell{% if page.toc == false %} no-toc{% endif %}">
+    {% unless page.toc == false %}
+    <aside class="toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+      <ol class="toc-list"></ol>
+    </aside>
+    {% endunless %}
+    <main id="content" class="doc">
+      {% unless page.toc == false %}
+      <details class="toc-mobile">
+        <summary>On this page</summary>
+        <ol class="toc-list"></ol>
+      </details>
+      {% endunless %}
+      {{ content }}
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="brand brand-sm" href="{{ page.root }}">
+        <img src="{{ page.root }}assets/pista-icon.svg" alt="" width="24" height="24">
+        <span>Pista</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="{{ page.root }}pista/">Privacy policy</a>
+        <a href="{{ page.root }}pista/terms/">Terms of service</a>
+        <a href="mailto:manifest.singularity@gmail.com">Contact</a>
+      </nav>
+      <p class="fine">© {{ site.time | date: "%Y" }} TranscenD. Pista keeps your money data on your phone.</p>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+
+  <script src="{{ page.root }}assets/pista.js" defer></script>
+</body>
+</html>
