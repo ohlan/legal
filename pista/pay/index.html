@@ -1,0 +1,44 @@
+---
+app: pista
+title: "Pay with UPI"
+eyebrow: "Sent with Pista"
+lede: "A friend asked you to settle up. Check the details, then pay with any UPI app."
+root: "../../"
+toc: false
+---
+<div class="pay-card" id="pay">
+  <p class="muted" id="pay-to">Loading…</p>
+  <p class="amount" id="pay-amount"></p>
+  <p class="muted" id="pay-note"></p>
+  <p><a class="button" id="pay-button" href="#" hidden>Pay with a UPI app</a></p>
+  <p class="muted" id="pay-help" hidden>The button opens your UPI app on a phone. On a computer, pay to this UPI ID instead: <span class="upi-id" id="pay-id"></span></p>
+  <p class="muted" id="pay-error" hidden>This link has no payment details. Ask your friend to send it again.</p>
+</div>
+<p class="muted" style="text-align:center;margin-top:22px">The details in this link stay in your browser: they are never sent to Pista or stored anywhere. Always check the name and UPI ID before you pay.</p>
+<p style="text-align:center"><a href="https://play.google.com/store/apps/details?id=io.pennytrail.app">Track your own spending with Pista →</a></p>
+<script>
+(function () {
+  // Details arrive after "#", which browsers never send to a server.
+  var p = new URLSearchParams(location.hash.replace(/^#/, ""));
+  var pa = (p.get("pa") || "").trim(), pn = (p.get("pn") || "").trim(), tn = (p.get("tn") || "").trim();
+  var am = (p.get("am") || "").trim(), cu = (p.get("cu") || "INR").trim().toUpperCase();
+  var $ = function (id) { return document.getElementById(id); };
+  var validId = /^[A-Za-z0-9._-]{2,256}@[A-Za-z][A-Za-z0-9.-]{1,63}$/.test(pa);
+  var amount = /^\d{1,9}(\.\d{1,2})?$/.test(am) ? Number(am) : NaN;
+  if (!validId || cu !== "INR") {
+    $("pay-to").hidden = true; $("pay-error").hidden = false; return;
+  }
+  // textContent only: nothing from the link is ever inserted as HTML.
+  $("pay-to").textContent = pn ? "Pay " + pn.slice(0, 60) : "Pay";
+  $("pay-id").textContent = pa;
+  if (amount > 0) $("pay-amount").textContent = "₹" + amount.toLocaleString("en-IN", { maximumFractionDigits: 2 });
+  $("pay-note").textContent = tn.slice(0, 80);
+  var q = new URLSearchParams({ pa: pa, cu: "INR" });
+  if (pn) q.set("pn", pn.slice(0, 60));
+  if (amount > 0) q.set("am", amount.toFixed(2));
+  if (tn) q.set("tn", tn.slice(0, 80));
+  $("pay-button").href = "upi://pay?" + q.toString();
+  $("pay-button").hidden = false; $("pay-help").hidden = false;
+})();
+</script>
+<noscript><p style="text-align:center">Turn on JavaScript to see the payment details, or ask your friend for their UPI ID.</p></noscript>

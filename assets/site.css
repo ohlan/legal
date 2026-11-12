@@ -338,3 +338,16 @@ a:hover { text-decoration-thickness: 2px; }
   .section { box-shadow: none; break-inside: avoid-page; }
   .shell { display: block; }
 }
+
+/* Call-to-action link on guide pages */
+.button {
+  display: inline-block; padding: 13px 22px; border-radius: 999px;
+  background: var(--brand); color: #fff; font-weight: 700; text-decoration: none;
+}
+.button:hover { filter: brightness(1.08); text-decoration: none; }
+.compare { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 15.5px; }
+.compare th, .compare td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.pay-card { max-width: 440px; margin: 0 auto; padding: 26px; border: 1px solid var(--line); border-radius: 22px; text-align: center; }
+.pay-card .amount { font-size: 40px; font-weight: 800; margin: 6px 0 2px; }
+.pay-card .muted { color: var(--muted); }
+.pay-card .upi-id { font-family: ui-monospace, monospace; user-select: all; }
