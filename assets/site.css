@@ -351,3 +351,22 @@ a:hover { text-decoration-thickness: 2px; }
 .pay-card .amount { font-size: 40px; font-weight: 800; margin: 6px 0 2px; }
 .pay-card .muted { color: var(--muted); }
 .pay-card .upi-id { font-family: ui-monospace, monospace; user-select: all; }
+.pay-card .pay-small { font-size: 14px; margin: 12px 0 0; }
+.pay-apps-title { font-weight: 700; margin: 18px 0 10px; }
+.pay-app-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pay-app {
+  display: block; padding: 13px 10px; border-radius: 14px; border: 1px solid var(--line);
+  font-weight: 700; text-decoration: none; color: inherit;
+}
+.pay-app:first-child { background: var(--brand); border-color: var(--brand); color: #fff; }
+.pay-app:hover, .pay-app:active { filter: brightness(1.06); text-decoration: none; }
+.pay-id-row {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line);
+}
+.pay-id-row[hidden] { display: none; }
+.pay-card .upi-id { overflow-wrap: anywhere; }
+.pay-copy {
+  font: inherit; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 999px;
+  border: 1px solid var(--line); background: transparent; color: inherit; cursor: pointer;
+}

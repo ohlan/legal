@@ -3,7 +3,7 @@ app: pista
 title: "Pista Privacy Policy"
 eyebrow: "Pista: Expense Tracker"
 lede: "How Pista handles your data. Most of it never leaves your phone."
-effective: "November 7, 2026"
+effective: "November 15, 2026"
 nav: privacy
 root: "../../"
 ---
@@ -38,13 +38,27 @@ This data is used only to detect financial transactions, queue drafts in Inbox, 
 
 SMS access is optional. If you do not enable it, you can still use Pista by adding transactions manually.
 
+### Payment Notifications From UPI Apps
+
+If you turn on "Catch UPI app payments" (off by default) and give Pista Android's notification access, Pista reads payment notifications posted by Google Pay, PhonePe, Paytm and BHIM so that UPI payments your bank does not send an SMS for still reach your Inbox. Notifications from every other app are ignored and never read or stored. From the supported apps, Pista keeps only finished payments: the app name, the notification text, the time, and the transaction draft made from it.
+
+This data is processed and stored on your device in the same way as SMS data, is used only to queue drafts in Inbox for you to confirm, and is never used for advertising. You can turn the feature off in Settings or remove notification access in Android settings at any time.
+
+### Scan And Pay
+
+If you use "Scan and pay", the QR code is read on your device by Google Play services' code scanner (Pista does not get camera access). The payment details from the QR code and the amount you enter are handed to the UPI app you pick on your phone, which makes the payment; Pista never moves money and never sees your UPI PIN or bank login. Pista stores the payment as a transaction on your device, with the payee's UPI ID and the name of the UPI app you used, and remembers on your device which UPI apps you use most.
+
+### Split Payments And Pay Links
+
+If you add your UPI ID for split payments and tap "Ask" on money someone owes you, Pista prepares a message with your UPI ID, the amount and a payment link, and opens Android's share sheet; it is sent only if you send it. The payment details are placed after the "#" of the link, which browsers do not send to the web server, so the page that opens the payment (hosted on GitHub Pages) does not receive them.
+
 ### Receipt Photos And Attachments
 
 If you attach receipt photos, Pista stores those images in app-private storage on your device. Receipt images may be included in Drive backups if Drive backup is enabled.
 
 ### On-Device AI
 
-Pista Pro includes an AI assistant and AI-written insights powered by a language model that runs on your device. The model file is downloaded from Google Play the first time you use these features. Your questions, the answers, and the spending data used to produce them are processed on your device and are not sent to Pista or to any AI provider. Recent conversation turns are kept in app memory only to answer follow-up questions.
+Pista Pro includes an AI assistant and AI-written insights powered by a language model that runs on your device. The model file is downloaded the first time you use these features, from Google Play or, for the larger models, from Hugging Face (huggingface.co), which receives the ordinary details of a file download (such as your IP address) but none of your data. Your questions, the answers, and the spending data used to produce them are processed on your device and are not sent to Pista or to any AI provider. Recent conversation turns are kept in app memory only to answer follow-up questions.
 
 ### Google Account Data
 
@@ -52,7 +66,9 @@ If you sign in with Google, Pista receives your Google account email address and
 
 Pista checks on your device whether your email is on a complimentary-access list (for example, Founders Circle members). Your email is not sent to Pista for this check.
 
-Each Google account can use the free trial once. When your trial starts, Pista stores a one-way hash of your Google account email (a fixed-length code from which the email cannot be read back) in our Google Cloud Firestore database, together with the app version. No email address, name, date, device identifier or financial data is stored with it. The app can only add such a code, never read, change or delete one; it only learns whether the code already exists. We keep these codes for as long as we offer the free trial.
+To keep the free trial to one per Google account, Pista signs you in to Firebase Authentication (a Google service) with your Google sign-in. Firebase Authentication receives your Google account email address and account identifier and keeps a user record with your sign-in times; Pista uses it only to prove which account is claiming a trial.
+
+Each Google account can use the free trial once. When your trial starts, Pista stores a one-way hash of your Google account email (a fixed-length code from which the email cannot be read back) in our Google Cloud Firestore database, together with the trial's start date and the app version. No email address, name, device identifier or financial data is stored with it. Only your signed-in account can create its own record or read it back (so a reinstall can resume your trial); no one can change it from the app. We keep these records for as long as we offer the free trial.
 
 Pista also stores a small record in your own Google Drive AppData folder with your trial start date and any launch-offer perks, so a reinstall can resume your trial and perks. This record contains no financial data.
 
@@ -84,6 +100,7 @@ Pista may request these Android permissions:
 
 - SMS (read and receive): to detect bank transaction SMS when you enable SMS auto-tracking.
 - Notifications: to show reminders, inbox and budget alerts, and summaries you enable.
+- Notification access (optional, off by default): to read payment notifications from supported UPI apps when you turn on "Catch UPI app payments".
 - Camera: to capture receipt photos when you choose to attach one.
 - Internet and network state: for Google sign-in, Drive backup, purchases, AI model download, Firebase services, and the optional sharing features described above.
 - Exact alarms: to deliver reminders at the time you choose.
@@ -115,16 +132,17 @@ Most features work entirely on your device. Data leaves your device only in thes
 
 - **Google sign-in:** Google authenticates you and shares your email and name with the app.
 - **Google Drive backup (optional):** backup snapshots and the small trial record are uploaded to your own Google Drive AppData folder.
-- **Free trial:** a one-way hash of your Google account email is sent to Google Cloud Firestore to record that the account has used its trial, as described above.
+- **Free trial:** your Google sign-in is shared with Firebase Authentication, and a one-way hash of your Google account email with the trial's start date is sent to Google Cloud Firestore to record that the account has used its trial, as described above.
 - **Purchases:** handled by Google Play.
 - **Firebase Crashlytics and Analytics:** crash reports and usage events as described above are sent to Google.
 - **Firebase Remote Config:** the app downloads feature settings and parsing-rule updates. It does not upload your SMS or transactions to do this.
-- **AI model download:** the on-device model is downloaded from Google Play. Your data is not uploaded.
+- **AI model download:** the on-device model is downloaded from Google Play or Hugging Face. Your data is not uploaded.
+- **Scan and pay and pay links:** payment details go to the UPI app you choose on your phone, or into a message you choose to share, as described above.
 - **Feedback and missed-SMS reports:** sent to Google Cloud Firestore only when you choose to send them.
 - **"Help improve SMS reading" (off by default):** each message format you teach Pista in the Inbox is anonymised on your device and sent to Google Cloud Firestore. Only the bank's public sender header (for example "HDFCBK"), the fixed banking wording of the message with every amount, merchant, name, account digit, date, time and reference number replaced by a placeholder (for example "{amount}"), whether it was money spent or received, and the app version are sent. Messages you have not taught are never shared. No account, email, device identifier or transaction data is attached. We use these formats only to add support for more banks to Pista's built-in parsing rules. You can turn this off at any time in Settings or on the teach screen; formats already shared cannot be linked back to you and so cannot be deleted individually.
 - **Exports and sharing:** CSV or PDF exports leave the app only when you share or save them.
 
-Free-trial records, anonymised SMS formats, missed-SMS reports, and feedback are stored in Google Cloud Firestore in a write-only database: the app can create entries but cannot read them back. Feedback is kept only as long as needed to answer and act on it.
+Free-trial records, anonymised SMS formats, missed-SMS reports, and feedback are stored in Google Cloud Firestore. The app can create entries but cannot change them, and cannot read them back, except that a signed-in account can read its own free-trial record. Feedback is kept only as long as needed to answer and act on it.
 
 ## Backup And Sync
 
@@ -143,6 +161,8 @@ Local transactions, SMS-derived drafts, settings, accounts, budgets, goals, cate
 Deleted transactions stay in Trash for 30 days, after which they are permanently deleted automatically, unless you restore or delete them sooner.
 
 Settings includes a "Wipe local data" option that deletes local app data on the device. It does not delete Google Drive backups that were already uploaded.
+
+Stored SMS are removed after 90 days. When a removed SMS was one you had already ignored or deleted, Pista keeps on your device only a one-way hash of it and its time, so the same message is not offered again; no text is kept, and wiping local data removes these too.
 
 If you disable SMS auto-tracking, Pista stops future SMS ingestion. Existing SMS-derived records remain until you delete them or wipe local data.
 
@@ -174,7 +194,7 @@ Depending on where you live (for example under the GDPR, UK GDPR, CCPA, or India
 - reset or delete your advertising ID in Android settings;
 - contact us to ask about, or request deletion of, feedback you sent us.
 
-Anonymised SMS formats and missed-SMS reports contain no identifier, so we cannot find or delete a specific person's entries. If you ask us to delete your free-trial record, we can compute its code from your email and remove it; your account then counts as never having used the trial.
+Anonymised SMS formats and missed-SMS reports contain no identifier, so we cannot find or delete a specific person's entries. If you ask us to delete your free-trial record and your Firebase Authentication user record, we can find them from your email and remove them; your account then counts as never having used the trial.
 
 ## Third-Party Services
 
@@ -187,10 +207,14 @@ Pista uses:
 - Firebase Crashlytics for crash diagnostics;
 - Google Analytics for Firebase for usage analytics;
 - Firebase Remote Config for feature settings and parsing-rule updates;
+- Firebase Authentication to confirm which Google account claims the free trial;
 - Google Cloud Firestore for free-trial records, feedback, missed-SMS reports, and opt-in SMS format sharing;
+- Google Play services' code scanner for Scan and pay;
+- Hugging Face for downloading the larger on-device AI models;
+- GitHub Pages for hosting this policy, the help pages and the pay-link page;
 - Android platform services for SMS, notifications, camera, widgets, and alarms.
 
-These services are provided by Google and governed by Google's Privacy Policy (https://policies.google.com/privacy).
+Google's services are governed by Google's Privacy Policy (https://policies.google.com/privacy). Hugging Face and GitHub are governed by their own privacy policies.
 
 ## Changes To This Policy
 
