@@ -190,11 +190,12 @@ Depending on where you live (for example under the GDPR, UK GDPR, CCPA, or India
 - use Pista without SMS auto-tracking, Google sign-in, or Drive backup;
 - deny or revoke SMS, notification, or camera permissions in Android settings;
 - disconnect Google Drive backup and delete its hidden app data from Google Drive;
+- delete your Pista account in the app (Account → Delete account), or ask us to on the [account deletion page](../delete-account/);
 - turn "Help improve SMS reading" on or off at any time;
 - reset or delete your advertising ID in Android settings;
 - contact us to ask about, or request deletion of, feedback you sent us.
 
-Anonymised SMS formats and missed-SMS reports contain no identifier, so we cannot find or delete a specific person's entries. If you ask us to delete your free-trial record and your Firebase Authentication user record, we can find them from your email and remove them; your account then counts as never having used the trial.
+Anonymised SMS formats and missed-SMS reports contain no identifier, so we cannot find or delete a specific person's entries. **Deleting your account.** "Delete account" on the Account screen deletes your Firebase Authentication user record straight away and signs you out. You can choose to delete your Google Drive backups and the trial record in your Drive AppData folder in the same step. Data on your phone is not touched; use "Wipe local data" for that. A purchase stays with Google Play, and a subscription keeps renewing until you cancel it there. We keep the free-trial record (the one-way hash of your email and the trial's start date) after an account is deleted, so that deleting an account and signing in again does not start a second trial. If you ask us by email to remove that record too, we can find it from your email address and delete it.
 
 ## Third-Party Services
 

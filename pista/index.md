@@ -10,6 +10,7 @@ toc: false
 <li><a class="card-link" href="privacy/"><strong>Privacy policy</strong><span>What Pista reads, what stays on your phone, and the few things that leave it.</span><em>Read the policy →</em></a></li>
 <li><a class="card-link" href="terms/"><strong>Terms of service</strong><span>Using Pista, the free trial, Pro subscriptions and refunds.</span><em>Read the terms →</em></a></li>
 <li><a class="card-link" href="faq/"><strong>Help and FAQ</strong><span>Missing payments, automatic tracking, backup, plans and more.</span><em>Read the answers →</em></a></li>
+<li><a class="card-link" href="delete-account/"><strong>Delete your account</strong><span>Delete your Pista account in the app or by email, and what is kept.</span><em>See how →</em></a></li>
 </ul>
 
 <h2>Guides</h2>
