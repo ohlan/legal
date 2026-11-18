@@ -44,7 +44,7 @@ Yes. Pista AI runs on your phone. Your questions and your money data are not sen
 
 The usual reasons, most likely first:
 
-1. **Your bank didn't send an SMS.** Many UPI payments only show a notification in the payment app. Turn on Settings → SMS tracking → **Catch UPI app payments** to pick those up from Google Pay, PhonePe, Paytm and BHIM. They always wait for your review.
+1. **Your bank didn't send an SMS.** Many UPI payments only show a notification in the payment app. Turn on Settings → SMS tracking → **Catch UPI app payments** to pick those up from Google Pay, PhonePe, Paytm, BHIM, CRED, super.money, Amazon Pay, Flipkart UPI, MobiKwik, Freecharge and Navi. They always wait for your review.
 2. **Your phone stopped Pista in the background.** Some phones (Xiaomi, Vivo, Oppo, Realme, OnePlus, Samsung) do this to save battery. Open Settings → SMS tracking → **Keep Pista running** and follow the steps for your phone. Pista also catches up each time you open it.
 3. **The message is in a format Pista doesn't know yet.** Open the Inbox and tap **Help Pista read**. Pick the message, tap the amount in it, and Pista learns that format on your phone and reads the sender's other messages too.
 

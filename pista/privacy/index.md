@@ -3,7 +3,7 @@ app: pista
 title: "Pista Privacy Policy"
 eyebrow: "Pista: Expense Tracker"
 lede: "How Pista handles your data. Most of it never leaves your phone."
-effective: "November 15, 2026"
+effective: "November 18, 2026"
 nav: privacy
 root: "../../"
 ---
@@ -40,7 +40,7 @@ SMS access is optional. If you do not enable it, you can still use Pista by addi
 
 ### Payment Notifications From UPI Apps
 
-If you turn on "Catch UPI app payments" (off by default) and give Pista Android's notification access, Pista reads payment notifications posted by Google Pay, PhonePe, Paytm and BHIM so that UPI payments your bank does not send an SMS for still reach your Inbox. Notifications from every other app are ignored and never read or stored. From the supported apps, Pista keeps only finished payments: the app name, the notification text, the time, and the transaction draft made from it.
+If you turn on "Catch UPI app payments" (off by default) and give Pista Android's notification access, Pista reads payment notifications posted by Google Pay, PhonePe, Paytm, BHIM, CRED, super.money, Amazon Pay, Flipkart UPI, MobiKwik, Freecharge and Navi so that UPI payments your bank does not send an SMS for still reach your Inbox. Notifications from every other app are ignored and never read or stored. From the supported apps, Pista keeps only finished payments: the app name, the notification text, the time, and the transaction draft made from it. When the other party is you (money moved between your own accounts), Pista compares the name with your Google account name and the UPI ID you saved, on your device, so the payment is filed as a transfer instead of spending.
 
 This data is processed and stored on your device in the same way as SMS data, is used only to queue drafts in Inbox for you to confirm, and is never used for advertising. You can turn the feature off in Settings or remove notification access in Android settings at any time.
 
