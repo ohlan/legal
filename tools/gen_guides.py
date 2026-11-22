@@ -40,7 +40,7 @@ def page(slug, name, pack):
     return f"""---
 app: pista
 title: "Track {name} spending automatically"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "Pista reads your {name} SMS alerts on your phone and turns them into a list of expenses. No bank login, no ads, no loan offers."
 root: "../../../"
 toc: false
@@ -89,7 +89,7 @@ def main():
     (out / "index.md").write_text(f"""---
 app: pista
 title: "Banks Pista reads"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "Pista tracks your spending from bank SMS alerts. These banks are supported out of the box, and Pista can learn others."
 root: "../../"
 toc: false

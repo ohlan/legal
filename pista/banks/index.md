@@ -1,7 +1,7 @@
 ---
 app: pista
 title: "Banks Pista reads"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "Pista tracks your spending from bank SMS alerts. These banks are supported out of the box, and Pista can learn others."
 root: "../../"
 toc: false

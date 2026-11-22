@@ -1,7 +1,7 @@
 ---
 app: pista
 title: "Pista legal"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "A private expense tracker. Your money data stays on your phone. These documents explain exactly what that means."
 root: "../"
 toc: false

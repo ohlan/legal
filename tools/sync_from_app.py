@@ -36,7 +36,7 @@ def convert(text: str, nav: str, lede: str) -> str:
         "---",
         f"app: {APP}",
         f'title: "{title}"',
-        f'eyebrow: "Pista: Expense Tracker"',
+        f'eyebrow: "Pista: Money & Expense Tracker"',
         f'lede: "{lede}"',
         f'effective: "{effective}"',
         f"nav: {nav}",

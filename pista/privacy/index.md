@@ -1,13 +1,13 @@
 ---
 app: pista
 title: "Pista Privacy Policy"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "How Pista handles your data. Most of it never leaves your phone."
 effective: "November 18, 2026"
 nav: privacy
 root: "../../"
 ---
-Pista ("Pista: Expense Tracker", formerly PennyTrail) is a personal expense tracking app for Android. This policy explains what data the app accesses, how it is used, when it may leave your device, and how you can control it. It should be read together with the [Pista Terms of Service](../terms/).
+Pista (formerly PennyTrail) is a personal expense tracking app for Android. This policy explains what data the app accesses, how it is used, when it may leave your device, and how you can control it. It should be read together with the [Pista Terms of Service](../terms/).
 
 ## Summary
 

@@ -1,7 +1,7 @@
 ---
 app: pista
 title: "An expense tracker without bank login"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "You can track every UPI and card payment automatically without linking a bank account or sharing a password."
 root: "../../../"
 toc: false

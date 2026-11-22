@@ -1,7 +1,7 @@
 ---
 app: pista
 title: "How an SMS expense tracker works"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "From a bank alert to a tidy expense list in one swipe, and why nothing has to leave your phone."
 root: "../../../"
 toc: false

@@ -1,7 +1,7 @@
 ---
 app: pista
 title: "Delete your Pista account"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "How to delete your Pista account and the data that goes with it, in the app or by email."
 root: "../../"
 toc: false

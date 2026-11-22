@@ -1,7 +1,7 @@
 ---
 app: pista
 title: "Looking for a Walnut or axio alternative?"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "If you liked automatic SMS expense tracking but not the loan offers, here is how Pista compares."
 root: "../../../"
 toc: false

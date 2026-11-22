@@ -1,7 +1,7 @@
 # One entry per app. Pages set `app: <key>` in their front matter.
 pista:
   name: "Pista"
-  store_name: "Pista: Expense Tracker"
+  store_name: "Pista: Money & Expense Tracker"
   tagline: "A private expense tracker. Your money data stays on your phone."
   icon: "assets/apps/pista.svg"
   developer: "TranscenD"

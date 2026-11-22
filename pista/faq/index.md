@@ -1,7 +1,7 @@
 ---
 app: pista
 title: "Pista help and FAQ"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "Short answers to the questions people ask most. If yours isn't here, send it from Settings → Send feedback."
 root: "../../"
 ---

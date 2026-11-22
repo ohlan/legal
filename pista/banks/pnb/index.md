@@ -1,7 +1,7 @@
 ---
 app: pista
 title: "Track Punjab National Bank spending automatically"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "Pista reads your Punjab National Bank SMS alerts on your phone and turns them into a list of expenses. No bank login, no ads, no loan offers."
 root: "../../../"
 toc: false

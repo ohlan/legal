@@ -1,7 +1,7 @@
 ---
 app: pista
 title: "Track Bank of Baroda spending automatically"
-eyebrow: "Pista: Expense Tracker"
+eyebrow: "Pista: Money & Expense Tracker"
 lede: "Pista reads your Bank of Baroda SMS alerts on your phone and turns them into a list of expenses. No bank login, no ads, no loan offers."
 root: "../../../"
 toc: false
